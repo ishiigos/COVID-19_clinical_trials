@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clinical Trials Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+        .chart { margin-bottom: 50px; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+
+    <h1>📊 Clinical Trials Dashboard</h1>
+
+    <div class="chart">
+        <h2>Trials Over Time</h2>
+        <div id="fig_time"></div>
+    </div>
+
+    <div class="chart">
+        <h2>Top 10 Countries</h2>
+        <div id="fig_country"></div>
+    </div>
+
+    <div class="chart">
+        <h2>Top 10 Sponsors</h2>
+        <div id="fig_sponsor"></div>
+    </div>
+
+    <script>
+        (function() {
+            let graphs = {{ graphs | tojson }};
+            Plotly.newPlot('fig_time', graphs.fig_time.data, graphs.fig_time.layout);
+            Plotly.newPlot('fig_country', graphs.fig_country.data, graphs.fig_country.layout);
+            Plotly.newPlot('fig_sponsor', graphs.fig_sponsor.data, graphs.fig_sponsor.layout);
+        })();
+    </script>
+
+</body>
+</html>
