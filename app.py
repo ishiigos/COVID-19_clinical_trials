@@ -7,7 +7,7 @@ import json
 app = Flask(__name__)
 
 # Load data
-df = pd.read_csv('data/clinical_trials.csv')
+df = pd.read_csv('Covid_clinical_trial_dataset_cleaned.csv')
 
 # Clean and preprocess columns
 df['Start Date'] = pd.to_datetime(df['Start Date'], errors='coerce')
